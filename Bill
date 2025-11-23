@@ -1,0 +1,31 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. HELLO-WORLD.
+DATA DIVISION.
+    WORKING-STORAGE SECTION.
+        01 BIL PIC 9(3).
+            88 FBIL VALUE 000 THRU 200.
+            88 SBIL VALUE 201 THRU 400. 
+            88 TBIL VALUE 401 THRU 600.
+        01 RS PIC 9(4).
+        01 R PIC 9(3).
+        01 R1 PIC 9(3).
+        01 S PIC 9(3) VALUE 200.
+        01 S1 PIC 9(3) VALUE 400.
+PROCEDURE DIVISION.
+    ACCEPT BIL.
+    IF FBIL
+        COMPUTE RS = BIL*4
+        DISPLAY RS
+    ELSE IF SBIL
+        COMPUTE R = BIL - S
+        COMPUTE RS = S*4 + R*8 + 0900
+        DISPLAY RS  
+    ELSE IF TBIL
+        COMPUTE R1 = BIL - S1 
+        COMPUTE RS = S*12 + R1*10 + 1500
+        DISPLAY RS  
+    ELSE
+        DISPLAY "d "
+    END-IF. 
+    DISPLAY BIL R R1. 
+STOP RUN.
